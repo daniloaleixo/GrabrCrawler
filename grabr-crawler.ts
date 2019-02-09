@@ -26,6 +26,12 @@ async function makeRequest() {
   const response: AxiosResponse = await axiosInstance.get(`https://api.grabr.io/grabs?filter%5Bfrom.id%5D%5Beql%5D=${filterFromIdEql}&filter%5Bto.id%5D%5Beql%5D=${filterToIdEql}&limit=${limit}&include=consumer.avatar%2Cto%2Cfrom%2Citem.images%2Coffers.itinerary.from%2Coffers.itinerary.to%2Coffers.itinerary.user.avatar%2Coffers.itinerary.organization.avatar%2Cinvoice&sort=-updated_at%2C-id`);
 
   const grabrs: GrabrObject[] = (<GrabrResponse>response.data).data;
+  
+  const allNomBidGrabs: GrabrObject[] = grabrs.filter((grabr: GrabrObject) => {
+    return !grabr.attributes.hasMyOffer && grabr.attributes.offersBid.length == 0;
+  });
+
+  
 }
 
 makeRequest();
