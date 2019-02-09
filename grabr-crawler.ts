@@ -17,14 +17,18 @@ async function makeRequest() {
   if (process.env.ENV == "prod") {
 
 
-    const filterFromIdEql = 20813;
-    const filterToIdEql = 1441;
+    const filterFromIdEql = 50000;
+    const filterToIdEql = 25000;
     const limit = 100;
 
     const headers = {
       "accept": `application / json; version=3`,
       "Authorization": process.env.AUTH_TOKEN,
+      "grabr-key-inflection": "camel_lower",
+      "grabr-locale": "pt",
+      "grabr-platform": "web",
       "grabr-device": process.env.DEVICE,
+      "If-None-Match": `W/"1c9ecde76625d67d9a0d11fb7d0873ce"`,
       "Host": `api.grabr.io`,
     };
 
