@@ -17,9 +17,9 @@ async function makeRequest() {
   if (process.env.ENV == "prod") {
 
 
-    const filterFromIdEql = 50000;
-    const filterToIdEql = 25000;
-    const limit = 100;
+    const fromCityID = 20813;
+    const ToCityID = 1441;
+    const limit = 20;
 
     const headers = {
       "accept": `application / json; version=3`,
@@ -36,7 +36,7 @@ async function makeRequest() {
       headers
     });
 
-    const response: AxiosResponse = await axiosInstance.get(`https://api.grabr.io/grabs?filter%5Bfrom.id%5D%5Beql%5D=${filterFromIdEql}&filter%5Bto.id%5D%5Beql%5D=${filterToIdEql}&limit=${limit}&include=consumer.avatar%2Cto%2Cfrom%2Citem.images%2Coffers.itinerary.from%2Coffers.itinerary.to%2Coffers.itinerary.user.avatar%2Coffers.itinerary.organization.avatar%2Cinvoice&sort=-updated_at%2C-id`);
+    const response: AxiosResponse = await axiosInstance.get(`https://api.grabr.io/grabs?filter%5Bfrom.id%5D%5Beql%5D=${fromCityID}&filter%5Bto.id%5D%5Beql%5D=${ToCityID}&limit=${limit}&include=consumer.avatar%2Cto%2Cfrom%2Citem.images%2Coffers.itinerary.from%2Coffers.itinerary.to%2Coffers.itinerary.user.avatar%2Coffers.itinerary.organization.avatar%2Cinvoice&sort=-updated_at%2C-id`);
 
 
     grabrRespone = <GrabrResponse>response.data;
