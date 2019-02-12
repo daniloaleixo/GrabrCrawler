@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "./node_modules/typescript/bin/tsc",
-    "run": "node dist/grabr-crawler.js"
+    "start": "node dist/grabr-crawler.js",
+    "start:prod": "ENV=prod node dist/grabr-crawler.js"
   },
   "author": "",
   "license": "ISC",
